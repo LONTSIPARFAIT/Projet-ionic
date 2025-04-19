@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['tab1.page.scss'],
   standalone: false,
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit {
 
   constructor() {}
 
