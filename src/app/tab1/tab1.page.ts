@@ -20,5 +20,12 @@ export class Tab1Page implements OnInit {
       message: ['', Validators.required]
     });
   }
+  onSubmit() {
+    if (this.myForm.valid) {
+      console.log('Formulaire soumis :', this.myForm.value);
+      // Ici, tu peux envoyer les données à une API ou les traiter
+      alert('Formulaire envoyé avec succès !');
+      this.myForm.reset(); // Réinitialiser le formulaire après soumission
+    }
 
 }
