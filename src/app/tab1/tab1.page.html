@@ -36,7 +36,7 @@
           <ion-label position="floating">Message</ion-label>
           <ion-textarea formControlName="message" rows="4"></ion-textarea>
         </ion-item>
-        <ion-text color="danger" *ngIf="myForm.get('message')?.invalid && myForm.get('message')?.touched">
+        <ion-text color="danger" >
           Le message est requis.
         </ion-text>
 
