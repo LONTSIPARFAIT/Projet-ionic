@@ -10,6 +10,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class Tab1Page implements OnInit {
   myForm: FormGroup;
 
-  constructor() {}
+  constructor(private fb: FormBuilder) {}
 
 }
