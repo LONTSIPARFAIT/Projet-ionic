@@ -20,21 +20,21 @@ export class Tab1Page implements OnInit {
       message: ['', Validators.required]
     });
   }
-  // // Méthode pour vérifier si un champ est valide
-  // isFieldValid(field: string) {
-  //   return !this.myForm.get(field)?.valid && this.myForm.get(field)?.touched;
-  // }
-  // // Méthode pour obtenir le message d'erreur d'un champ
-  // getErrorMessage(field: string) {
-  //   if (this.myForm.get(field)?.hasError('required')) {
-  //     return 'Ce champ est requis';
-  //   } else if (this.myForm.get(field)?.hasError('minlength')) {
-  //     return 'Le nom doit contenir au moins 3 caractères';
-  //   } else if (this.myForm.get(field)?.hasError('email')) {
-  //     return 'Adresse e-mail invalide';
-  //   }
-  //   return '';
-  // }
+  // Méthode pour vérifier si un champ est valide
+  isFieldValid(field: string) {
+    return !this.myForm.get(field)?.valid && this.myForm.get(field)?.touched;
+  }
+  // Méthode pour obtenir le message d'erreur d'un champ
+  getErrorMessage(field: string) {
+    if (this.myForm.get(field)?.hasError('required')) {
+      return 'Ce champ est requis';
+    } else if (this.myForm.get(field)?.hasError('minlength')) {
+      return 'Le nom doit contenir au moins 3 caractères';
+    } else if (this.myForm.get(field)?.hasError('email')) {
+      return 'Adresse e-mail invalide';
+    }
+    return '';
+  }
   // Méthode pour soumettre le formulaire
     onSubmit() {
       if (this.myForm.valid) {
