@@ -12,7 +12,7 @@
       <ion-card-title>Formulaire</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <form [formGroup]="myForm">
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
         <!-- Champ Nom -->
         <ion-item>
           <ion-label position="floating">Nom</ion-label>
@@ -27,7 +27,7 @@
           <ion-label position="floating">Email</ion-label>
           <ion-input formControlName="email" type="email"></ion-input>
         </ion-item>
-        <ion-text color="danger" >
+        <ion-text color="danger" *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched">
           Veuillez entrer un email valide.
         </ion-text>
 
@@ -36,12 +36,12 @@
           <ion-label position="floating">Message</ion-label>
           <ion-textarea formControlName="message" rows="4"></ion-textarea>
         </ion-item>
-        <ion-text color="danger" >
+        <ion-text color="danger" *ngIf="myForm.get('message')?.invalid && myForm.get('message')?.touched">
           Le message est requis.
         </ion-text>
 
         <!-- Bouton Soumettre -->
-        <ion-button type="submit" expand="block" color="primary"
+        <ion-button type="submit" expand="block" color="primary" [disabled]="myForm.invalid">
           Envoyer
         </ion-button>
       </form>
