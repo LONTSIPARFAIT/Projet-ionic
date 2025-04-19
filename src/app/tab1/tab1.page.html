@@ -6,12 +6,45 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Formulaire</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <!-- Champ Nom -->
+        <ion-item>
+          <ion-label position="floating">Nom</ion-label>
+          <ion-input formControlName="name" type="text"></ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched">
+          Le nom est requis (minimum 3 caractères).
+        </ion-text>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+        <!-- Champ Email -->
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input formControlName="email" type="email"></ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched">
+          Veuillez entrer un email valide.
+        </ion-text>
+
+        <!-- Champ Message -->
+        <ion-item>
+          <ion-label position="floating">Message</ion-label>
+          <ion-textarea formControlName="message" rows="4"></ion-textarea>
+        </ion-item>
+        <ion-text color="danger" *ngIf="myForm.get('message')?.invalid && myForm.get('message')?.touched">
+          Le message est requis.
+        </ion-text>
+
+        <!-- Bouton Soumettre -->
+        <ion-button type="submit" expand="block" color="primary" [disabled]="myForm.invalid">
+          Envoyer
+        </ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
