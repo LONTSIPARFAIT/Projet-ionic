@@ -12,4 +12,13 @@ export class Tab1Page implements OnInit {
 
   constructor(private fb: FormBuilder) {}
 
+  ngOnInit() {
+    // Initialisation du formulaire avec validations
+    this.myForm = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      message: ['', Validators.required]
+    });
+  }
+
 }
