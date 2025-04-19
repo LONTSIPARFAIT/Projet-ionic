@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   standalone: false,
 })
 export class Tab1Page implements OnInit {
-  myForm: FormGroup;
+  myForm!: FormGroup; // Ajoute ! pour indiquer que myForm sera assigné
 
   constructor(private fb: FormBuilder) {}
 
