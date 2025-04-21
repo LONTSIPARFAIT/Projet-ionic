@@ -12,6 +12,7 @@ import { AlertController } from '@ionic/angular';
 export class Tab1Page implements OnInit {
   myForm!: FormGroup; // Ajoute ! pour indiquer que myForm sera assigné
   submissions: any[] = []; // Tableau pour stocker les soumissions
+  isLoading = false; // Ajouter cette propriété
 
   constructor(
     private fb: FormBuilder,
