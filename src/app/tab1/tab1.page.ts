@@ -120,4 +120,49 @@ export class Tab1Page implements OnInit {
   //       alert('Veuillez remplir tous les champs correctement.');
   //     }
   // }
+  
+  async openEditModal(submission: any) {
+    this.selectedSubmission = submission;
+    this.editForm.patchValue({
+      id: submission.id,
+      name: submission.name,
+      email: submission.email,
+      message: submission.message
+    });
+
+    const modal = await this.modalController.create({
+      component: EditSubmissionModalComponent,
+      componentProps: {
+        editForm: this.editForm
+      }
+    });
+
+    modal.onDidDismiss().then(async (result) => {
+      if (result.data && result.data.submit) {
+        this.isLoading = true;
+        try {
+          await this.apiService.updateSubmission(this.editForm.value).toPromise();
+          const alert = await this.alertController.create({
+            header: 'Succès',
+            message: 'Soumission modifiée avec succès !',
+            buttons: ['OK']
+          });
+          await alert.present();
+          await this.loadSubmissions();
+        } catch (error) {
+          console.error('Erreur lors de la modification :', error);
+          const alert = await this.alertController.create({
+            header: 'Erreur',
+            message: 'Une erreur est survenue. Réessayez.',
+            buttons: ['OK']
+          });
+          await alert.present();
+        } finally {
+          this.isLoading = false;
+        }
+      }
+    });
+
+    await modal.present();
+  }
 }
