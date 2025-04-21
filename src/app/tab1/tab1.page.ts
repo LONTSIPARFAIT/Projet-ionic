@@ -47,7 +47,7 @@ export class Tab1Page implements OnInit {
         console.log('Soumissions :', this.submissions);
 
         // Sauvegarder dans localStorage
-    localStorage.setItem('submissions', JSON.stringify(this.submissions));
+        localStorage.setItem('submissions', JSON.stringify(this.submissions));
         alert('Formulaire soumis avec succès !');
         this.myForm.reset(); // Réinitialiser le formulaire
       } else {
