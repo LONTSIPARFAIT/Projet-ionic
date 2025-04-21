@@ -16,7 +16,6 @@ ion-button {
   margin-top: 16px;
 }
 
-/* Styles pour le tableau */
 .header-row {
   font-weight: bold;
   background-color: #f4f4f4;
@@ -32,5 +31,5 @@ ion-col {
   display: flex;
   align-items: center;
   justify-content: center;
-  word-break: break-word; /* Pour gérer les longs messages */
+  word-break: break-word;
 }
