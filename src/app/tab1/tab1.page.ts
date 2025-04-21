@@ -48,7 +48,7 @@ export class Tab1Page implements OnInit {
     this.isLoading = true;
     try {
       const response = await this.apiService.getSubmissions().toPromise();
-      this.submissions = response; // Mettre à jour le tableau
+      this.submissions = response;
     } catch (error) {
       console.error('Erreur lors du chargement des soumissions :', error);
       const alert = await this.alertController.create({
