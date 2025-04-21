@@ -68,8 +68,10 @@ ion-button {
 
 .chat-avatar {
   .chat-svg {
-    height: 24px;
-    width: 24px;
+    display: flex;
+    justify-content: center;
+    height: 70px;
+    width: 70px;
     color: #ff9500;
     background-color: #fff;
     border-radius: 50%;
