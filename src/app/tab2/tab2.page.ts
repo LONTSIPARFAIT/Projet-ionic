@@ -22,8 +22,9 @@ export class Tab2Page implements OnInit {
     salut: 'Miaou ! Je suis Perfecto, ton chat virtuel. 😺 Comment puis-je t’aider ?',
     'ça va': 'Super, merci ! Et toi, ça va ?',
     soumissions: 'Laisse-moi vérifier... Il y a %SUBMISSIONS% soumissions dans l’app. Veux-tu plus de détails ?',
-    quiz: 'OK ! Quelle est la capitale de la France ? A) Paris B) Londres C) Tokyo',
-    paris: 'Bonne réponse ! 😺 Veux-tu une autre question ?',
+    quiz: 'OK ! Question 1 : Quelle est la capitale de la France ? A) Paris B) Londres C) Tokyo',
+    paris: 'Bonne réponse ! 😺 Question 2 : Quel est le langage principal d’Angular ? A) JavaScript B) TypeScript C) Python',
+    typescript: 'Correct ! 🎉 Veux-tu une autre question ?',
     oui:'Ok cool ! 😺 Quelle est la capitale du Japon ? A) Bruxelle B) Caire C) Tokyo ?',
     Tokyo:'Bonne réponse ! 😺 Veux-tu une autre question ?',
     default: 'Mmm, je ne suis qu’un petit chat, je n’ai pas compris. 😿 Essaie "salut", "soumissions", ou "quiz" !'
