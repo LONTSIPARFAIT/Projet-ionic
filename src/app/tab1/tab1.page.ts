@@ -89,8 +89,6 @@ export class Tab1Page implements OnInit {
           buttons: ['OK']
         });
         await alert.present();
-
-        // Recharger les soumissions
         await this.loadSubmissions();
         this.myForm.reset();
       } catch (error) {
