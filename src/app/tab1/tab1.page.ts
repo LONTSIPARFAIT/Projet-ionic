@@ -45,7 +45,7 @@ export class Tab1Page implements OnInit {
         console.log('Soumissions :', this.submissions);
         alert('Formulaire soumis avec succès !');
         this.myForm.reset(); // Réinitialiser le formulaire
-      }else {
+      } else {
         alert('Veuillez remplir tous les champs correctement.');
       }
   }
