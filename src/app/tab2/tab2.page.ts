@@ -25,7 +25,7 @@ export class Tab2Page implements OnInit {
     quiz: 'OK ! Quelle est la capitale de la France ? A) Paris B) Londres C) Tokyo',
     paris: 'Bonne réponse ! 😺 Veux-tu une autre question ?',
     oui:'Ok cool ! 😺 Quelle est la capitale du Japon ? A) Bruxelle B) Caire C) Tokyo ?',
-    Tokyo:
+    Tokyo:'Bonne réponse ! 😺 Veux-tu une autre question ?',
     default: 'Mmm, je ne suis qu’un petit chat, je n’ai pas compris. 😿 Essaie "salut", "soumissions", ou "quiz" !'
   };
 
