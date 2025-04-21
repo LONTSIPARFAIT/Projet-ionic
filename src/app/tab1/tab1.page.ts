@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ApiService } from '../services/api.service';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -16,7 +17,7 @@ export class Tab1Page implements OnInit {
     private fb: FormBuilder,
     private apiService: ApiService,
     private alertController: AlertController
-  ) {
+  ) {}
 
   ngOnInit() {
     // Initialisation du formulaire avec validations
