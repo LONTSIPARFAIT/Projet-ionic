@@ -10,6 +10,14 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+  <!-- Avatar animé -->
+  <div class="chat-avatar flex justify-center mb-4">
+    <svg class="w-16 h-16 animate-bounce text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm-1-6h-2v2H7v2h2v2h2v-2h2v-2h-2V4zm6 12H7c-1.1 0-2-.9-2-2v-1c0-2.76 2.24-5 5-5h4c2.76 0 5 2.24 5 5v1c0 1.1-.9 2-2 2z"></path>
+    </svg>
+  </div>
+
+  <!-- Messages -->
   <div class="chat-container">
     <div *ngFor="let message of messages" class="message" [ngClass]="message.sender === 'user' ? 'user-message' : 'bot-message'">
       <div class="message-content">
@@ -19,6 +27,7 @@
     </div>
   </div>
 
+  <!-- Formulaire -->
   <form [formGroup]="chatForm" (ngSubmit)="sendMessage()" class="chat-form">
     <ion-item>
       <ion-input formControlName="message" placeholder="Tape ton message..." (ionInput)="chatForm.get('message')?.markAsTouched()"></ion-input>
