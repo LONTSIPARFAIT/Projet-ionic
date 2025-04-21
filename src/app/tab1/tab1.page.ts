@@ -21,6 +21,8 @@ export class Tab1Page implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       message: ['', Validators.required]
     });
+    // Charger depuis localStorage
+  this.submissions = JSON.parse(localStorage.getItem('submissions') || '[]');
   }
   // Méthode pour vérifier si un champ est valide
   isFieldValid(field: string) {
