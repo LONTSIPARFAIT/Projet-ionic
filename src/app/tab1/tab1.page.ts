@@ -65,7 +65,7 @@ export class Tab1Page implements OnInit {
     return '';
   }
   // Méthode pour soumettre le formulaire
-    onSubmit() {
+  async onSubmit() {
       if (this.myForm.valid) {
         // Ajouter la soumission au tableau
         this.submissions.push(this.myForm.value);
