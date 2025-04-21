@@ -28,8 +28,27 @@ export class Tab1Page implements OnInit {
     });
     // Charger depuis localStorage
     this.loadSubmissions();
-    this.submissions = JSON.parse(localStorage.getItem('submissions') || '[]');
+    // this.submissions = JSON.parse(localStorage.getItem('submissions') || '[]');
   }
+
+  async loadSubmissions() {
+    this.isLoading = true;
+    try {
+      const response = await this.apiService.getSubmissions().toPromise();
+      this.submissions = response; // Mettre à jour le tableau
+    } catch (error) {
+      console.error('Erreur lors du chargement des soumissions :', error);
+      const alert = await this.alertController.create({
+        header: 'Erreur',
+        message: 'Impossible de charger les soumissions.',
+        buttons: ['OK']
+      });
+      await alert.present();
+    } finally {
+      this.isLoading = false;
+    }
+  }
+
   // Méthode pour vérifier si un champ est valide
   isFieldValid(field: string) {
     return !this.myForm.get(field)?.valid && this.myForm.get(field)?.touched;
