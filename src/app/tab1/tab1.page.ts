@@ -210,7 +210,6 @@ export class Tab1Page implements OnInit {
 
 // Composant pour la modale d’édition (à créer séparément)
 @Component({
-  selector: 'app-edit-submission-modal',
   template: `
     <ion-header>
       <ion-toolbar>
@@ -251,10 +250,9 @@ export class Tab1Page implements OnInit {
         </ion-button>
       </form>
     </ion-content>
-  `,
-  standalone: true, // Marquer explicitement comme standalone
-  imports: [CommonModule, IonicModule, ReactiveFormsModule] // Importer les modules nécessaires
+  `
 })
+
 export class EditSubmissionModalComponent {
   editForm!: FormGroup;
 
