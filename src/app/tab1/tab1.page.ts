@@ -65,12 +65,11 @@ export class Tab1Page implements OnInit {
     return '';
   }
   // Méthode pour soumettre le formulaire
-  async onSubmit() {
+    onSubmit() {
       if (this.myForm.valid) {
         // Ajouter la soumission au tableau
-        // this.submissions.push(this.myForm.value);
-        // console.log('Soumissions :', this.submissions);
-        this.isLoading = true;
+        this.submissions.push(this.myForm.value);
+        console.log('Soumissions :', this.submissions);
 
         // Sauvegarder dans localStorage
         localStorage.setItem('submissions', JSON.stringify(this.submissions));
