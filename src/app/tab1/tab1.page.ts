@@ -234,6 +234,15 @@ export class Tab1Page implements OnInit {
                 buttons: ['OK']
               });
               await errorAlert.present();
+              // Supprimer localement si l’API échoue
+              this.submissions = this.submissions.filter(sub => sub.id !== id);
+              localStorage.setItem('submissions', JSON.stringify(this.submissions));
+              const cacheAlert = await this.alertController.create({
+                header: 'Information',
+                message: 'Suppression enregistrée localement en attendant la connexion à l’API.',
+                buttons: ['OK']
+              });
+              await cacheAlert.present();
             } finally {
               this.isLoading = false;
             }
