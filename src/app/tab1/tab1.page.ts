@@ -52,15 +52,27 @@ export class Tab1Page implements OnInit {
     try {
       const response = await this.apiService.getSubmissions().toPromise();
       this.submissions = response;
-      localStorage.setItem('submissions', JSON.stringify(response));
+      localStorage.setItem('submissions', JSON.stringify(response)); // Sauvegarder dans localStorage
     } catch (error) {
-      console.error('Erreur lors du chargement des soumissions :', error);
-      const alert = await this.alertController.create({
-        header: 'Erreur',
-        message: 'Impossible de charger les soumissions.',
-        buttons: ['OK']
-      });
-      await alert.present();
+      console.error('Erreur API, chargement depuis localStorage :', error);
+      const cachedSubmissions = localStorage.getItem('submissions');
+      if (cachedSubmissions) {
+        this.submissions = JSON.parse(cachedSubmissions);
+        const alert = await this.alertController.create({
+          header: 'Information',
+          message: 'API indisponible. Données chargées depuis le cache local.',
+          buttons: ['OK']
+        });
+        await alert.present();
+      } else {
+        this.submissions = [];
+        const alert = await this.alertController.create({
+          header: 'Erreur',
+          message: 'Impossible de charger les soumissions. Aucun cache local disponible.',
+          buttons: ['OK']
+        });
+        await alert.present();
+      }
     } finally {
       this.isLoading = false;
     }
