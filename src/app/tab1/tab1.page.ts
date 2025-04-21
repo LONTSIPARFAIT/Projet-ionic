@@ -30,6 +30,14 @@ export class Tab1Page implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       message: ['', Validators.required]
     });
+
+    // Initialiser le formulaire d’édition
+    this.editForm = this.fb.group({
+      id: [''],
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      message: ['', Validators.required]
+    });
     // Charger depuis localStorage
     this.loadSubmissions();
     // this.submissions = JSON.parse(localStorage.getItem('submissions') || '[]');
