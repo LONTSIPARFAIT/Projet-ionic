@@ -9,4 +9,11 @@ export class ApiService {
   private apiUrl = 'http://localhost/contact_api/index.php'; // URL de l’API
 
   constructor(private http: HttpClient) { }
+  submitForm(data: any): Observable<any> {
+    return this.http.post(this.apiUrl, data);
+  }
+
+  getSubmissions(): Observable<any> {
+    return this.http.get(this.apiUrl);
+  }
 }
