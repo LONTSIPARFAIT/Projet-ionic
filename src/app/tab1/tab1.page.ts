@@ -115,6 +115,16 @@ export class Tab1Page implements OnInit {
           buttons: ['OK']
         });
         await alert.present();
+        // Ajouter localement si l’API échoue (optionnel)
+        const newSubmission = { ...this.myForm.value, id: Date.now() }; // ID temporaire
+        this.submissions.push(newSubmission);
+        localStorage.setItem('submissions', JSON.stringify(this.submissions));
+        const cacheAlert = await this.alertController.create({
+          header: 'Information',
+          message: 'Soumission enregistrée localement en attendant la connexion à l’API.',
+          buttons: ['OK']
+        });
+        await cacheAlert.present();
       } finally {
         this.isLoading = false;
       }
