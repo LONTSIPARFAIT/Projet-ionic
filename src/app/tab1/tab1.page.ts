@@ -64,6 +64,8 @@ export class Tab1Page implements OnInit {
     }
     return '';
   }
+
+  
   // Méthode pour soumettre le formulaire
   //   onSubmit() {
   //     if (this.myForm.valid) {
