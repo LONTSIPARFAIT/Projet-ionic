@@ -12,7 +12,11 @@ export class Tab1Page implements OnInit {
   myForm!: FormGroup; // Ajoute ! pour indiquer que myForm sera assigné
   submissions: any[] = []; // Tableau pour stocker les soumissions
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private apiService: ApiService,
+    private alertController: AlertController
+  ) {
 
   ngOnInit() {
     // Initialisation du formulaire avec validations
