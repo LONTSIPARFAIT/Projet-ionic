@@ -120,7 +120,7 @@ export class Tab1Page implements OnInit {
   //       alert('Veuillez remplir tous les champs correctement.');
   //     }
   // }
-  
+
   async openEditModal(submission: any) {
     this.selectedSubmission = submission;
     this.editForm.patchValue({
@@ -164,5 +164,46 @@ export class Tab1Page implements OnInit {
     });
 
     await modal.present();
+  }
+
+  async deleteSubmission(id: number) {
+    const alert = await this.alertController.create({
+      header: 'Confirmer la suppression',
+      message: 'Voulez-vous vraiment supprimer cette soumission ?',
+      buttons: [
+        {
+          text: 'Annuler',
+          role: 'cancel'
+        },
+        {
+          text: 'Supprimer',
+          handler: async () => {
+            this.isLoading = true;
+            try {
+              await this.apiService.deleteSubmission(id).toPromise();
+              const successAlert = await this.alertController.create({
+                header: 'Succès',
+                message: 'Soumission supprimée avec succès !',
+                buttons: ['OK']
+              });
+              await successAlert.present();
+              await this.loadSubmissions();
+            } catch (error) {
+              console.error('Erreur lors de la suppression :', error);
+              const errorAlert = await this.alertController.create({
+                header: 'Erreur',
+                message: 'Une erreur est survenue. Réessayez.',
+                buttons: ['OK']
+              });
+              await errorAlert.present();
+            } finally {
+              this.isLoading = false;
+            }
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 }
