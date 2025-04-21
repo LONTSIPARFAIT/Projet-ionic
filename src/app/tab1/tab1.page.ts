@@ -68,8 +68,9 @@ export class Tab1Page implements OnInit {
   async onSubmit() {
       if (this.myForm.valid) {
         // Ajouter la soumission au tableau
-        this.submissions.push(this.myForm.value);
-        console.log('Soumissions :', this.submissions);
+        // this.submissions.push(this.myForm.value);
+        // console.log('Soumissions :', this.submissions);
+        this.isLoading = true;
 
         // Sauvegarder dans localStorage
         localStorage.setItem('submissions', JSON.stringify(this.submissions));
