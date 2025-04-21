@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AlertController } from '@ionic/angular';
+// import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
@@ -10,6 +10,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class Tab1Page implements OnInit {
   myForm!: FormGroup; // Ajoute ! pour indiquer que myForm sera assigné
+  submissions: any[] = []; // Tableau pour stocker les soumissions
 
   constructor(private fb: FormBuilder) {}
 
