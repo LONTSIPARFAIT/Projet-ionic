@@ -65,7 +65,35 @@ export class Tab1Page implements OnInit {
     return '';
   }
 
-  
+  async onSubmit() {
+    if (this.myForm.valid) {
+      this.isLoading = true;
+      try {
+        await this.apiService.submitForm(this.myForm.value).toPromise();
+        const alert = await this.alertController.create({
+          header: 'Succès',
+          message: 'Formulaire envoyé avec succès !',
+          buttons: ['OK']
+        });
+        await alert.present();
+
+        // Recharger les soumissions
+        await this.loadSubmissions();
+        this.myForm.reset();
+      } catch (error) {
+        console.error('Erreur lors de l\'envoi :', error);
+        const alert = await this.alertController.create({
+          header: 'Erreur',
+          message: 'Une erreur est survenue. Réessayez.',
+          buttons: ['OK']
+        });
+        await alert.present();
+      } finally {
+        this.isLoading = false;
+      }
+    }
+  }
+
   // Méthode pour soumettre le formulaire
   //   onSubmit() {
   //     if (this.myForm.valid) {
