@@ -1,17 +1,36 @@
 ion-card {
-    margin: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+  margin: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-  ion-item {
-    margin-bottom: 16px;
-  }
+ion-item {
+  margin-bottom: 16px;
+}
 
-  ion-text[color="danger"] {
-    font-size: 12px;
-    margin-left: 16px;
-  }
+ion-text[color="danger"] {
+  font-size: 12px;
+  margin-left: 16px;
+}
 
-  ion-button {
-    margin-top: 16px;
-  }
+ion-button {
+  margin-top: 16px;
+}
+
+/* Styles pour le tableau */
+.header-row {
+  font-weight: bold;
+  background-color: #f4f4f4;
+  padding: 8px 0;
+}
+
+ion-row {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 8px 0;
+}
+
+ion-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-break: break-word; /* Pour gérer les longs messages */
+}
