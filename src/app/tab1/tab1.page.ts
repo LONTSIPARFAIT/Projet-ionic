@@ -252,3 +252,19 @@ export class Tab1Page implements OnInit {
     </ion-content>
   `
 })
+
+export class EditSubmissionModalComponent {
+  editForm!: FormGroup;
+
+  constructor(private modalController: ModalController) {}
+
+  submitEdit() {
+    if (this.editForm.valid) {
+      this.modalController.dismiss({ submit: true });
+    }
+  }
+
+  dismiss() {
+    this.modalController.dismiss();
+  }
+}
