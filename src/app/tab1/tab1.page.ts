@@ -207,3 +207,48 @@ export class Tab1Page implements OnInit {
     await alert.present();
   }
 }
+
+// Composant pour la modale d’édition (à créer séparément)
+@Component({
+  template: `
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Modifier la soumission</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="dismiss()">Annuler</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <form [formGroup]="editForm" (ngSubmit)="submitEdit()">
+        <ion-item>
+          <ion-label position="floating">Nom</ion-label>
+          <ion-input formControlName="name" type="text"></ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="editForm.get('name')?.invalid && editForm.get('name')?.touched">
+          Le nom est requis (minimum 3 caractères).
+        </ion-text>
+
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input formControlName="email" type="email"></ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="editForm.get('email')?.invalid && editForm.get('email')?.touched">
+          Veuillez entrer un email valide.
+        </ion-text>
+
+        <ion-item>
+          <ion-label position="floating">Message</ion-label>
+          <ion-textarea formControlName="message" rows="4"></ion-textarea>
+        </ion-item>
+        <ion-text color="danger" *ngIf="editForm.get('message')?.invalid && editForm.get('message')?.touched">
+          Le message est requis.
+        </ion-text>
+
+        <ion-button type="submit" expand="block" color="primary" [disabled]="editForm.invalid">
+          Enregistrer
+        </ion-button>
+      </form>
+    </ion-content>
+  `
+})
