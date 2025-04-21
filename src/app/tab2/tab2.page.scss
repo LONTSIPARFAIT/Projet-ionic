@@ -81,6 +81,20 @@ ion-button {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   }
 
+  .dark {
+    .chat-container {
+      background-color: #1a202c;
+    }
+    .chat-form {
+      background-color: #1a202c;
+      border-top-color: #4a5568;
+    }
+    .bot-message .message-content {
+      background-color: #2d3748;
+      color: white;
+    }
+  }
+  
   /* Animation personnalisée */
   @keyframes pulse {
     0% { transform: scale(1); }
