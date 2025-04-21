@@ -225,7 +225,7 @@ export class Tab1Page implements OnInit {
                 buttons: ['OK']
               });
               await successAlert.present();
-              await this.loadSubmissions();
+              await this.loadSubmissions(); // Recharger pour synchroniser localStorage
             } catch (error) {
               console.error('Erreur lors de la suppression :', error);
               const errorAlert = await this.alertController.create({
