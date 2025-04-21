@@ -19,7 +19,8 @@ export class Tab1Page implements OnInit {
   constructor(
     private fb: FormBuilder,
     private apiService: ApiService,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private modalController: ModalController
   ) {}
 
   ngOnInit() {
