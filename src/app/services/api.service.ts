@@ -8,5 +8,5 @@ import { Observable } from 'rxjs';
 export class ApiService {
   private apiUrl = 'http://localhost/contact_api/index.php'; // URL de l’API
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 }
