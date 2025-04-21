@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
+  private apiUrl = 'http://localhost/contact_api/index.php'; // URL de l’API
 
   constructor() { }
 }
