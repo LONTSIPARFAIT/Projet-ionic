@@ -250,7 +250,9 @@ export class Tab1Page implements OnInit {
         </ion-button>
       </form>
     </ion-content>
-  `
+  `,
+  standalone: true,
+  imports: [CommonModule, IonicModule, ReactiveFormsModule]
 })
 
 export class EditSubmissionModalComponent {
