@@ -67,19 +67,18 @@ ion-button {
     color: #ff9500;
     background-color: #fff;
     border-radius: 50%;
-    padding: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    padding: 4px; /* Réduit pour un SVG plus petit */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Ombre plus subtile */
   }
 
   /* Animation personnalisée */
   @keyframes pulse {
     0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+    50% { transform: scale(1.05); } /* Réduit l'amplitude */
     100% { transform: scale(1); }
   }
 
   .animate-pulse {
-    animation: pulse 2s infinite;
+    animation: pulse 2.5s infinite; /* Ralentie pour plus de douceur */
   }
 }
