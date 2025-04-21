@@ -38,8 +38,9 @@ export class Tab1Page implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       message: ['', Validators.required]
     });
-    // Charger depuis localStorage
+    // Charger les soumissions
     this.loadSubmissions();
+    // Charger depuis localStorage
     // this.submissions = JSON.parse(localStorage.getItem('submissions') || '[]');
   }
 
