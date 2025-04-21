@@ -40,10 +40,11 @@ export class Tab1Page implements OnInit {
   // Méthode pour soumettre le formulaire
     onSubmit() {
       if (this.myForm.valid) {
-        console.log('Formulaire soumis :', this.myForm.value);
-        // Ici, tu peux envoyer les données à une API ou les traiter
-        alert('Formulaire envoyé avec succès !');
-        this.myForm.reset(); // Réinitialiser le formulaire après soumission
+        // Ajouter la soumission au tableau
+      this.submissions.push(this.myForm.value);
+      console.log('Soumissions :', this.submissions);
+      alert('Formulaire soumis avec succès !');
+      this.myForm.reset(); // Réinitialiser le formulaire
       }
   }
 }
