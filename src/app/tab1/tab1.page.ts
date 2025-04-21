@@ -52,6 +52,7 @@ export class Tab1Page implements OnInit {
     try {
       const response = await this.apiService.getSubmissions().toPromise();
       this.submissions = response;
+      localStorage.setItem('submissions', JSON.stringify(response));
     } catch (error) {
       console.error('Erreur lors du chargement des soumissions :', error);
       const alert = await this.alertController.create({
