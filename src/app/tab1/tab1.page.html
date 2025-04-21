@@ -48,28 +48,28 @@
     </ion-card-content>
   </ion-card>
 
-  <!-- Tableau des soumissions -->
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Soumissions</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-grid>
-        <ion-row class="ion-text-center header-row">
-          <ion-col>Nom</ion-col>
-          <ion-col>Email</ion-col>
-          <ion-col>Message</ion-col>
-        </ion-row>
-        <ion-row *ngFor="let submission of submissions" class="ion-text-center">
-          <ion-col>{{ submission.name }}</ion-col>
-          <ion-col>{{ submission.email }}</ion-col>
-          <ion-col>{{ submission.message }}</ion-col>
-        </ion-row>
-        <ion-row *ngIf="submissions.length === 0" class="ion-text-center">
-          <ion-col>Aucune soumission pour le moment.</ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card-content>
-  </ion-card>
+<!-- Tableau des soumissions -->
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Soumissions</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-grid>
+      <ion-row class="header-row ion-text-center">
+        <ion-col>Nom</ion-col>
+        <ion-col>Email</ion-col>
+        <ion-col>Message</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let submission of submissions" class="ion-text-center">
+        <ion-col>{{ submission.name }}</ion-col>
+        <ion-col>{{ submission.email }}</ion-col>
+        <ion-col>{{ submission.message }}</ion-col>
+      </ion-row>
+      <ion-row *ngIf="submissions.length === 0" class="ion-text-center">
+        <ion-col>Aucune soumission pour le moment.</ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>
 
 </ion-content>
