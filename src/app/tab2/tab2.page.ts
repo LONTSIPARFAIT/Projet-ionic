@@ -19,7 +19,7 @@ export class Tab2Page implements OnInit {
 
   // Réponses prédéfinies du bot
   private botResponses: { [key: string]: string } = {
-    salut: 'Miaou ! Je suis Grok, ton chat virtuel. 😺 Comment puis-je t’aider ?',
+    salut: 'Miaou ! Je suis Perfecto, ton chat virtuel. 😺 Comment puis-je t’aider ?',
     'ça va': 'Super, merci ! Et toi, ça va ?',
     soumissions: 'Laisse-moi vérifier... Il y a %SUBMISSIONS% soumissions dans l’app. Veux-tu plus de détails ?',
     quiz: 'OK ! Quelle est la capitale de la France ? A) Paris B) Londres C) Tokyo',
