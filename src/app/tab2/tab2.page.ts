@@ -39,8 +39,11 @@ export class Tab2Page implements OnInit {
     document.body.classList.toggle('dark');
     localStorage.setItem('darkMode', document.body.classList.contains('dark') ? 'true' : 'false');
   }
-  
+
   ngOnInit() {
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark');
+    }
     // Initialiser le formulaire
     this.chatForm = this.fb.group({
       message: ['', Validators.required]
