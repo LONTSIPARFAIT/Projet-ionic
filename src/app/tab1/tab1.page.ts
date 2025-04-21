@@ -27,6 +27,7 @@ export class Tab1Page implements OnInit {
       message: ['', Validators.required]
     });
     // Charger depuis localStorage
+    this.loadSubmissions();
     this.submissions = JSON.parse(localStorage.getItem('submissions') || '[]');
   }
   // Méthode pour vérifier si un champ est valide
