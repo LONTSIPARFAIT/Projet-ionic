@@ -105,7 +105,7 @@ export class Tab1Page implements OnInit {
           buttons: ['OK']
         });
         await alert.present();
-        await this.loadSubmissions();
+        await this.loadSubmissions(); // Recharger pour synchroniser localStorage
         this.myForm.reset();
       } catch (error) {
         console.error('Erreur lors de l\'envoi :', error);
