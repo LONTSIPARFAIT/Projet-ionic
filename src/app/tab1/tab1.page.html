@@ -6,6 +6,12 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Inscription</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content class="ion-padding">
   <ion-card>
     <ion-card-header>
@@ -61,11 +67,20 @@
           <ion-col>Nom</ion-col>
           <ion-col>Email</ion-col>
           <ion-col>Message</ion-col>
+          <ion-col>Actions</ion-col>
         </ion-row>
         <ion-row *ngFor="let submission of submissions" class="ion-text-center">
           <ion-col>{{ submission.name }}</ion-col>
           <ion-col>{{ submission.email }}</ion-col>
           <ion-col>{{ submission.message }}</ion-col>
+          <ion-col>
+            <ion-button size="small" color="warning" (click)="openEditModal(submission)">
+              <ion-icon name="pencil"></ion-icon>
+            </ion-button>
+            <ion-button size="small" color="danger" (click)="deleteSubmission(submission.id)">
+              <ion-icon name="trash"></ion-icon>
+            </ion-button>
+          </ion-col>
         </ion-row>
         <ion-row *ngIf="submissions.length === 0" class="ion-text-center">
           <ion-col>Aucune soumission pour le moment.</ion-col>
