@@ -1,25 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
+import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss']
+  styleUrls: ['tab2.page.scss'],
+  standalone: true,
+  imports: [CommonModule, IonicModule, ReactiveFormsModule]
 })
 export class Tab2Page implements OnInit {
   chatForm!: FormGroup;
-  messages: { text: string, sender: 'user' | 'bot', timestamp: string }[] = [];
+  messages: { text: string; sender: 'user' | 'bot'; timestamp: string }[] = [];
   isLoading = false;
 
   // Réponses prédéfinies du bot
   private botResponses: { [key: string]: string } = {
-    'salut': 'Miaou ! Je suis Grok, ton chat virtuel. 😺 Comment puis-je t’aider ?',
+    salut: 'Miaou ! Je suis Grok, ton chat virtuel. 😺 Comment puis-je t’aider ?',
     'ça va': 'Super, merci ! Et toi, ça va ?',
-    'soumissions': 'Laisse-moi vérifier... Il y a %SUBMISSIONS% soumissions dans l’app. Veux-tu plus de détails ?',
-    'quiz': 'OK ! Quelle est la capitale de la France ? A) Paris B) Londres C) Tokyo',
-    'paris': 'Bonne réponse ! 😺 Veux-tu une autre question ?',
-    'default': 'Mmm, je ne suis qu’un petit chat, je n’ai pas compris. 😿 Essaie "salut", "soumissions", ou "quiz" !'
+    soumissions: 'Laisse-moi vérifier... Il y a %SUBMISSIONS% soumissions dans l’app. Veux-tu plus de détails ?',
+    quiz: 'OK ! Quelle est la capitale de la France ? A) Paris B) Londres C) Tokyo',
+    paris: 'Bonne réponse ! 😺 Veux-tu une autre question ?',
+    default: 'Mmm, je ne suis qu’un petit chat, je n’ai pas compris. 😿 Essaie "salut", "soumissions", ou "quiz" !'
   };
 
   constructor(
@@ -73,11 +78,31 @@ export class Tab2Page implements OnInit {
           }
         }, 100);
       }, 1000); // Simuler un délai de réponse
+    } else {
+      const alert = await this.alertController.create({
+        header: 'Erreur',
+        message: 'Veuillez entrer un message.',
+        buttons: ['OK']
+      });
+      await alert.present();
     }
   }
 
-  clearChat() {
-    this.messages = [];
-    localStorage.removeItem('chatMessages');
+  async clearChat() {
+    const alert = await this.alertController.create({
+      header: 'Confirmer',
+      message: 'Voulez-vous vraiment effacer l’historique du chat ?',
+      buttons: [
+        { text: 'Annuler', role: 'cancel' },
+        {
+          text: 'Effacer',
+          handler: () => {
+            this.messages = [];
+            localStorage.removeItem('chatMessages');
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
 }
