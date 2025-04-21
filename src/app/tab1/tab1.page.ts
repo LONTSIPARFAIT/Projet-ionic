@@ -183,6 +183,18 @@ export class Tab1Page implements OnInit {
             buttons: ['OK']
           });
           await alert.present();
+          // Mettre à jour localement si l’API échoue
+          const updatedSubmissions = this.submissions.map(sub =>
+            sub.id === this.editForm.value.id ? { ...this.editForm.value } : sub
+          );
+          this.submissions = updatedSubmissions;
+          localStorage.setItem('submissions', JSON.stringify(this.submissions));
+          const cacheAlert = await this.alertController.create({
+            header: 'Information',
+            message: 'Modification enregistrée localement en attendant la connexion à l’API.',
+            buttons: ['OK']
+          });
+          await cacheAlert.present();
         } finally {
           this.isLoading = false;
         }
