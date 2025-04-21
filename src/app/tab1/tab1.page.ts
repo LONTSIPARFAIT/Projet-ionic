@@ -13,6 +13,8 @@ export class Tab1Page implements OnInit {
   myForm!: FormGroup; // Ajoute ! pour indiquer que myForm sera assigné
   submissions: any[] = []; // Tableau pour stocker les soumissions
   isLoading = false; // Ajouter cette propriété
+  editForm!: FormGroup;
+  selectedSubmission: any = null;
 
   constructor(
     private fb: FormBuilder,
