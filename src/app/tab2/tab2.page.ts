@@ -35,6 +35,11 @@ export class Tab2Page implements OnInit {
     private alertController: AlertController
   ) {}
 
+  toggleDarkMode() {
+    document.body.classList.toggle('dark');
+    localStorage.setItem('darkMode', document.body.classList.contains('dark') ? 'true' : 'false');
+  }
+  
   ngOnInit() {
     // Initialiser le formulaire
     this.chatForm = this.fb.group({
