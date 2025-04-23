@@ -16,14 +16,14 @@
           <ion-label position="floating">Code du local</ion-label>
           <ion-input formControlName="name" type="text"></ion-input>
         </ion-item>
-        <ion-text color="danger" *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched">
-          <!-- Le nom est requis (minimum 3 caractères). -->
-        </ion-text>
+        <!-- <ion-text color="danger" *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched">
+          Le nom est requis (minimum 3 caractères).
+        </ion-text> -->
 
         <!-- Champ Email -->
         <ion-item>
           <ion-label position="floating">Nom du membre</ion-label>
-          <ion-input formControlName="email" type="email"></ion-input>
+          <ion-input formControlName="email" type="text"></ion-input>
         </ion-item>
         <ion-text color="danger" *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched">
           <!-- Veuillez entrer un email valide. -->
