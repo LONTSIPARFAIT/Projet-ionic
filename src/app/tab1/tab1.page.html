@@ -1,28 +1,28 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Inscription</ion-title>
+    <ion-title>Gestion des locaux</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Formulaire</ion-card-title>
+      <ion-card-title>Affecter un local a un memebre </ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
         <!-- Champ Nom -->
         <ion-item>
-          <ion-label position="floating">Nom</ion-label>
+          <ion-label position="floating">Code du local</ion-label>
           <ion-input formControlName="name" type="text"></ion-input>
         </ion-item>
         <ion-text color="danger" *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched">
-          Le nom est requis (minimum 3 caractères).
+          <!-- Le nom est requis (minimum 3 caractères). -->
         </ion-text>
 
         <!-- Champ Email -->
         <ion-item>
-          <ion-label position="floating">Email</ion-label>
+          <ion-label position="floating">Nom du membre</ion-label>
           <ion-input formControlName="email" type="email"></ion-input>
         </ion-item>
         <ion-text color="danger" *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched">
@@ -31,8 +31,9 @@
 
         <!-- Champ Message -->
         <ion-item>
-          <ion-label position="floating">Message</ion-label>
-          <ion-textarea formControlName="message" rows="4"></ion-textarea>
+          <ion-label position="floating">Date</ion-label>
+          
+          <!-- <ion-textarea formControlName="message" rows="4"></ion-textarea> -->
         </ion-item>
         <ion-text color="danger" *ngIf="myForm.get('message')?.invalid && myForm.get('message')?.touched">
           Le message est requis.
