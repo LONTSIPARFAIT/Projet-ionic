@@ -26,18 +26,28 @@
           <ion-input formControlName="email" type="email"></ion-input>
         </ion-item>
         <ion-text color="danger" *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched">
-          Veuillez entrer un email valide.
+          <!-- Veuillez entrer un email valide. -->
         </ion-text>
 
         <!-- Champ Message -->
         <ion-item>
           <ion-label position="floating">Date</ion-label>
-          
+          <ion-input formControlName="email" type="date"></ion-input>
           <!-- <ion-textarea formControlName="message" rows="4"></ion-textarea> -->
         </ion-item>
         <ion-text color="danger" *ngIf="myForm.get('message')?.invalid && myForm.get('message')?.touched">
-          Le message est requis.
+          <!-- Le message est requis. -->
         </ion-text>
+        <ion-item>
+          <ion-label position="floating">Heure de debut</ion-label>
+          <ion-input formControlName="email" type="time"></ion-input>
+          <!-- <ion-textarea formControlName="message" rows="4"></ion-textarea> -->
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Duree</ion-label>
+          <ion-input formControlName="email" type="number"></ion-input>
+          <!-- <ion-textarea formControlName="message" rows="4"></ion-textarea> -->
+        </ion-item>
 
         <!-- Bouton Soumettre -->
         <ion-button type="submit" expand="block" color="primary" [disabled]="myForm.invalid || isLoading">
