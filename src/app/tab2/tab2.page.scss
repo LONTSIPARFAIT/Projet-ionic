@@ -57,7 +57,7 @@
 ion-item {
   --padding-start: 0;
   --inner-padding-end: 0;
-  --border-color: transparent; /* Supprime la bordure par défaut */
+  --border-color: transparent; /* Supprime la bordure par défau */
 }
 
 ion-button {
@@ -94,7 +94,7 @@ ion-button {
       color: white;
     }
   }
-  
+
   /* Animation personnalisée */
   @keyframes pulse {
     0% { transform: scale(1); }
