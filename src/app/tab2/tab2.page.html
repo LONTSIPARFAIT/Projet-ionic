@@ -33,17 +33,17 @@
 
 
   <!-- Messages -->
-  <div class="chat-container">
+  <!-- <div class="chat-container">
     <div *ngFor="let message of messages" class="message" [ngClass]="message.sender === 'user' ? 'user-message' : 'bot-message'">
       <div class="message-content">
         <span class="message-text">{{ message.text }}</span>
         <span class="message-timestamp">{{ message.timestamp }}</span>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Formulaire (fixe en bas) -->
-  <form [formGroup]="chatForm" (ngSubmit)="sendMessage()" class="chat-form">
+  <!-- <form [formGroup]="chatForm" (ngSubmit)="sendMessage()" class="chat-form">
     <ion-item>
       <ion-input formControlName="message" placeholder="Tape ton message..." (ionInput)="chatForm.get('message')?.markAsTouched()"></ion-input>
       <ion-button slot="end" type="submit" [disabled]="chatForm.invalid || isLoading">
@@ -55,4 +55,4 @@
       Veuillez entrer un message.
     </ion-text>
   </form>
-</ion-content>
+</ion-content> -->
