@@ -72,18 +72,5 @@
   </ion-card-content>
 </ion-card>
 
-  <ion-toast
-    *ngIf="showToast"
-    [message]="toastMessage"
-    duration="2000"
-    position="top"
-    color="success"
-    (ionDidDismiss)="showToast = false">
-  </ion-toast>
 
-  <ion-loading
-    *ngIf="isLoading"
-    message="Envoi en cours..."
-    duration="2000">
-  </ion-loading>
 </ion-content>
