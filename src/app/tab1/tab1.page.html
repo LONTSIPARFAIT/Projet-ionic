@@ -14,13 +14,13 @@
     <ion-card-content>
       <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
         <!-- Champ Nom -->
-        <!-- <ion-item>
+        <ion-item>
           <ion-label position="floating">Nom</ion-label>
           <ion-input formControlName="name" type="text"></ion-input>
         </ion-item>
         <ion-text color="danger" *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched">
           Le nom est requis (minimum 3 caractères).
-        </ion-text> -->
+        </ion-text>
 
         <!-- Champ Email -->
         <!-- <ion-item>
