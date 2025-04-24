@@ -53,7 +53,7 @@
   </div>
 
   <!-- Formulaire (fixe en bas) -->
-  <!-- <form [formGroup]="chatForm" (ngSubmit)="sendMessage()" class="chat-form">
+  <form [formGroup]="chatForm" (ngSubmit)="sendMessage()" class="chat-form">
     <ion-item>
       <ion-input formControlName="message" placeholder="Tape ton message..." (ionInput)="chatForm.get('message')?.markAsTouched()"></ion-input>
       <ion-button slot="end" type="submit" [disabled]="chatForm.invalid || isLoading">
@@ -64,5 +64,5 @@
     <ion-text color="danger" *ngIf="chatForm.get('message')?.invalid && chatForm.get('message')?.touched">
       Veuillez entrer un message.
     </ion-text>
-  </form> -->
+  </form>
 </ion-content>
